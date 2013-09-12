@@ -6,7 +6,7 @@ namespace MVC4_WebApplication_InternetApplication.Models
     {
          public static void ThrowException()
          {
-             throw new Exception("Some exception");
+             throw new Exception("HomeModels exception");
          }
     }
 }
