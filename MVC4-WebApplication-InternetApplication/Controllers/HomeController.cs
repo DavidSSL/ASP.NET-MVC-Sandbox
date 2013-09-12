@@ -11,14 +11,9 @@ namespace MVC4_WebApplication_InternetApplication.Controllers
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
-            try
-            {
-                HomeModels.ThrowException();
-            }
-            catch (Exception e)
-            {
-                
-            }
+            
+            HomeModels.ThrowException();
+           
 
             return View();
         }
