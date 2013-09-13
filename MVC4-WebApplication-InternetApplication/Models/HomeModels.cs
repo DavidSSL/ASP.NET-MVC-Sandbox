@@ -1,4 +1,5 @@
 ﻿using System;
+using MVC4_WebApplication_InternetApplication.Classes;
 
 namespace MVC4_WebApplication_InternetApplication.Models
 {
@@ -8,5 +9,10 @@ namespace MVC4_WebApplication_InternetApplication.Models
          {
              throw new Exception("HomeModels exception");
          }
+
+        public static void CallGrandChild()
+        {
+            GrandChild.ThrowException();
+        }
     }
 }

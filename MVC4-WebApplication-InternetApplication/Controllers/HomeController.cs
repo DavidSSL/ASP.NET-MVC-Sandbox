@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Net;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using MVC4_WebApplication_InternetApplication.Models;
 
 namespace MVC4_WebApplication_InternetApplication.Controllers
@@ -11,10 +8,8 @@ namespace MVC4_WebApplication_InternetApplication.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
             
-            HomeModels.ThrowException();
-           
+            HomeModels.CallGrandChild();
 
             return View();
         }

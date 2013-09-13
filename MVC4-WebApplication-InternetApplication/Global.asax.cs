@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using MVC4_WebApplication_InternetApplication.Infrastructure;
 
 namespace MVC4_WebApplication_InternetApplication
 {
@@ -16,6 +13,9 @@ namespace MVC4_WebApplication_InternetApplication
     {
         protected void Application_Start()
         {
+            ControllerBuilder.Current.SetControllerFactory(
+                new ErrorHandlingControllerFactory());
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
