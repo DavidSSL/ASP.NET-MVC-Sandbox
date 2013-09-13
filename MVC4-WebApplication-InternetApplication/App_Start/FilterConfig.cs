@@ -1,5 +1,5 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using MVC4_WebApplication_InternetApplication.Infrastructure;
 
 namespace MVC4_WebApplication_InternetApplication
 {
@@ -7,7 +7,7 @@ namespace MVC4_WebApplication_InternetApplication
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new LoggingExceptionFilter(new HandleErrorAttribute(), new NLogWriter()));
         }
     }
 }
