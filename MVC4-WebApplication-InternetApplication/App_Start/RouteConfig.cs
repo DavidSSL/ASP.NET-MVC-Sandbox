@@ -10,16 +10,19 @@ namespace MVC4_WebApplication_InternetApplication
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            string[] allowedMethods = { "GET" };
+
             routes.MapRoute("BlogArchive",
                 "{year}/{month}/{day}",
                 new { controller = "Blog", action = "List", month = "1", day = "1" },
                 new
                 {
-                    year = @"\d{2}|\d{4}",
-                    month = @"\d{1,2}",
-                    day = @"\d{1,2}"
+                    year = @"\d{2}|\d{4}"
+                    , month = @"\d{1,2}"
+                    , day = @"\d{1,2}"
+                    , dateIsValid = new IsDateValidConstraint()
                     ,
-                    dateIsValid = new IsDateValidConstraint()
+                    method = new HttpMethodConstraint(allowedMethods)
                 }
                 );
 
