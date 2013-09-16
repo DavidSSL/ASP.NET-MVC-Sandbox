@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using MVC4_WebApplication_InternetApplication.ExtensibilityPoints;
 
 namespace MVC4_WebApplication_InternetApplication
 {
@@ -12,7 +13,14 @@ namespace MVC4_WebApplication_InternetApplication
             routes.MapRoute("BlogArchive",
                 "{year}/{month}/{day}",
                 new { controller = "Blog", action = "List", month = "1", day = "1" },
-                new { year = @"\d{2}|\d{4}", month = @"\d{1,2}", day = @"\d{1,2}" }
+                new
+                {
+                    year = @"\d{2}|\d{4}",
+                    month = @"\d{1,2}",
+                    day = @"\d{1,2}"
+                    ,
+                    dateIsValid = new IsDateValidConstraint()
+                }
                 );
 
             routes.MapRoute("Post",
